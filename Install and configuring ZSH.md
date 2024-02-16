@@ -14,16 +14,6 @@ sudo apt install powerline fonts-powerline
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Clone the Oh My Zsh Repo
-```
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-```
-
-## Create a New ZSH configuration file
-```
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-```
-
 ## Install plugins.
  - autosuggesions plugin
  
@@ -46,10 +36,6 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 	`git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k`
 
 
-## Set up a theme for your Terminal — Open .zshrc File using gedit editor
-```
-gedit .zshrc
-```
 ## Change your Default Shell
 ```
 chsh -s /bin/zsh
