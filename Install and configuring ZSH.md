@@ -4,10 +4,24 @@
 ```
 sudo apt install zsh-autosuggestions zsh-syntax-highlighting zsh
 ```
+## Install powerline & powerline fonts.
+```
+sudo apt install powerline fonts-powerline
+```
 
 ## Install Oh my ZSH.
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+## Clone the Oh My Zsh Repo
+```
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+```
+
+## Create a New ZSH configuration file
+```
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 ```
 
 ## Install plugins.
@@ -26,17 +40,42 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
  - zsh-autocomplete plugin
 	
 	`git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete`
-	
+
+ - Install PowerLevel9k!
+
+	`git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k`
+
+
+## Set up a theme for your Terminal — Open .zshrc File using gedit editor
+```
+gedit .zshrc
+```
+## Change your Default Shell
+```
+chsh -s /bin/zsh
+```
+
 ## Enable plugins by adding them to .zshrc.
  - Open .zshrc
 	
-	`nvim ~/.zshrc`
+	`gedit ~/.zshrc`
 	
  -  Find the line which says `plugins=(git)`.
 	
  -  Replace that line with
 	`plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)`
+
+## Set up a theme for your Terminal
+ - Open .zshrc
 	
+	`gedit ~/.zshrc`
+
+ -  Change and put these lines
+	`ZSH_THEME="powerlevel9k/powerlevel9k"POWERLEVEL9K_DISABLE_RPROMPT=true
+	POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+	POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶"
+	POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""`
+
 ## References
 
  - [Oh my ZSH](https://github.com/ohmyzsh/ohmyzsh)
@@ -44,3 +83,4 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
  - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
  - [zsh-fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
  - [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)
+ - [powerlevel9k](https://github.com/Powerlevel9k/powerlevel9k)
