@@ -13,7 +13,16 @@ Add-Content -Path "$Env:USERPROFILE/.wslconfig" -Value "memory=<memory>GB"
 Add-Content -Path "$Env:USERPROFILE/.wslconfig" -Value "processors=<processor>"
 ```
 
-## Adjusting permissions to `non-root` users:
+## Update and Upgrade WSL OS
+ - Open `WSL Terminal` and digits:
+```
+sudo apt update && apt upgrade -y
+```
+
+## Install DevOps / Development Stack
+See other tutorials on repo or tips bellow.
+
+### Adjusting permissions to `non-root` users to docker:
  - Open `WSL Terminal` and digits:
 ```
 sudo su
@@ -32,11 +41,33 @@ sudo su
 ```
 wsl --shutdown
 ```
-## Update and Upgrade WSL OS
- - Open `WSL Terminal` and digits:
+
+### Install awscli
+To install the `AWS CLI`, run the following commands.
 ```
-sudo apt update && apt upgrade -y
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws --version
 ```
 
-## Install DevOps / Development Stack
-See other tutorials on repo
+### Install kubectl
+To install the `kubectl`, run the following commands.
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+kubectl version --client
+```
+
+### Configuring git sources
+```
+{
+  echo "Git host 1";
+  echo "  Port 221"; # custom port
+  echo "  AddKeysToAgent yes";
+  echo "  IdentityFile ~/.ssh/key1";
+  echo "git host 2";
+  echo "  AddKeysToAgent yes";
+  echo "  IdentityFile ~/.ssh/key2";
+} > ~/.ssh/config
+```
