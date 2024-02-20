@@ -61,7 +61,8 @@ chsh -s /bin/zsh
         	terraform
         	zsh-autosuggestions
    		zsh-syntax-highlighting
-        	F-Sy-H
+        	fast-syntax-highlighting
+		zsh-autocomplete
 	)
 ```
 ## Set up a theme for your Terminal
