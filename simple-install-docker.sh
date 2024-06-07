@@ -13,19 +13,20 @@ sudo apt-get -y install \
     software-properties-common
 
 echo"Installing dockers official GPG key..."
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key -y add -
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 echo"Adding docker repository..."
-sudo add-apt-repository -y \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 echo"Updating..."
 sudo apt-get -y update && sudo apt-get -y upgrade
 
 echo"Installing docker...."
-sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 echo"Running post install steps..."
 sudo groupadd docker
